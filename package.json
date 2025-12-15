@@ -1,0 +1,25 @@
+{
+  "name": "myndco-landingpage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebSync360/MyndCo-LandingPage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebSync360/MyndCo-LandingPage/issues"
+  },
+  "homepage": "https://github.com/WebSync360/MyndCo-LandingPage#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.3.3"
+  }
+}
