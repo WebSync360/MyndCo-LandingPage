@@ -7,34 +7,32 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary brand colors for Mindset Coach Landing Page
+        // Primary brand colors (Red Palette)
         brand: {
-          50:  '#ebf5ff',  // Very light blue, for backgrounds or section highlights
-          100: '#d0e4ff',  // Light blue, for hover states, subtle accents
-          500: '#00264D',  // Deep blue, primary buttons, hero background
-          700: '#000B18',  // Darker blue, headings, emphasis, footer background
+          50:  '#ffcdd2',  // very light red, for backgrounds, subtle cards
+          100: '#ef9a9a',  // light red, hover states, highlights
+          500: '#b71c1c',  // deep red, primary buttons, hero background
+          700: '#c62828',  // darker red, headings, emphasis, footers
         },
-        // Neutral backgrounds for clean, airy sections
+        // Accent color to balance the warmth of red
+        accent: '#00264D', // deep blue, for small UI elements, icons, subtle highlights
+        // Neutral background for clean sections
         neutralbg: '#f7f7f7',
-        // Optional accent color (for small highlights, icons, separators)
-        accent: '#D4A373', // muted gold, premium feel
       },
       fontFamily: {
-        // Modern, readable, professional font
+        // Modern, professional font
         inter: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       spacing: {
-        // Predefine generous padding/margin for luxury feel
+        // Generous padding/margin for luxury feel
         'section-y': '5rem',   // vertical spacing for major sections
         'section-x': '2rem',   // horizontal spacing
       },
       borderRadius: {
-        // Rounded corners for cards / buttons
-        'lg': '1rem',
+        'lg': '1rem',  // rounded corners for cards/buttons
       },
       boxShadow: {
-        // Subtle premium shadows for cards
-        'card': '0 8px 24px rgba(0,0,0,0.05)',
+        'card': '0 8px 24px rgba(0,0,0,0.05)',  // subtle premium shadow
       },
     },
   },
