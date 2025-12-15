@@ -10,9 +10,9 @@ module.exports = {
         // Primary brand colors (Red Palette)
         brand: {
           50:  '#ffcdd2',  // very light red, for backgrounds, subtle cards
-          100: '#ef9a9a',  // light red, hover states, highlights
-          500: '#b71c1c',  // deep red, primary buttons, hero background
-          700: '#c62828',  // darker red, headings, emphasis, footers
+          100: '#ec8d8dff',  // light red, hover states, highlights
+          500: '#660000',  // deep red, primary buttons, hero background
+          700: '#330000',  // darker red, headings, emphasis, footers
         },
         // Accent color to balance the warmth of red
         accent: '#00264D', // deep blue, for small UI elements, icons, subtle highlights

@@ -42,6 +42,206 @@
 </head>
 <body>
 
+<!-- Header / Navigation -->
+<header
+  id="site-header"
+  class="fixed top-0 left-0 w-full z-50 transition-colors duration-300"
+>
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Brand / Logo -->
+<div class="flex items-center gap-3 p-2 bg-white border rounded-5xl">
+  <!-- Logo -->
+  <div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white font-bold">
+    MC
+  </div>
+
+  <!-- Text -->
+  <div class="leading-tight">
+    <p class="text-brand-500 font-semibold">MindsetCoach</p>
+    <p class="text-xs text-brand-500/70">Executive & Leadership Coaching</p>
+  </div>
+</div>
+
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-9 text-sm font-medium text-white/80">
+      <a href="#hero" class="hover:text-white transition">Home</a>
+      <a href="#about" class="hover:text-white transition">About</a>
+      <a href="#programs" class="hover:text-white transition">Programs</a>
+      <a href="#faq" class="hover:text-white transition">FAQ</a>
+      <a href="#contact" class="hover:text-white transition">Contact</a>
+
+<!-- Primary CTA -->
+<a
+  href="#booking"
+  class="ml-4 bg-white text-brand-500 px-6 py-2.5 rounded-full font-semibold shadow-lg 
+         hover:bg-brand-500 hover:text-white transition"
+>
+  Book Strategy Session
+</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="menu-btn"
+      class="md:hidden text-white text-2xl focus:outline-none"
+    >
+      ☰
+    </button>
+
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-brand-500 text-white w-full absolute top-full left-0 shadow-lg"
+  >
+    <nav class="flex flex-col gap-4 px-6 py-4">
+      <a href="#hero" class="hover:text-white transition">Home</a>
+      <a href="#about" class="hover:text-white transition">About</a>
+      <a href="#programs" class="hover:text-white transition">Programs</a>
+      <a href="#testimonials" class="hover:text-white transition">Testimonials</a>
+      <a href="#faq" class="hover:text-white transition">FAQ</a>
+      <a href="#contact" class="hover:text-white transition">Contact</a>
+
+      <a
+        href="#booking"
+        class="mt-2 bg-brand-700 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:bg-white hover:text-brand-700 transition text-center"
+      >
+        Book Strategy Session
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section
+  id="hero"
+  class="relative w-full min-h-screen overflow-hidden"
+>
+  <!-- Background -->
+<div class="absolute inset-0 -z-10">
+  <img
+    src="https://avatars.mds.yandex.net/i?id=48a2467312d979bf28649fb16026d61cd45f546c-10869598-images-thumbs&n=13"
+    alt="Hero Background"
+    class="w-full h-full object-cover brightness-70"
+  />
+
+  <!-- Deep red luxury overlay -->
+  <div class="absolute inset-0 bg-gradient-to-br
+              from-brand-700/75
+              via-brand-500/70
+              to-black/70">
+  </div>
+</div>
+
+  <!-- Content Wrapper -->
+  <div
+    class="max-w-7xl mx-auto px-5
+           pt-[90px] pb-20
+           grid grid-cols-1 lg:grid-cols-2 gap-12"
+  >
+
+    <!-- LEFT: Premium Messaging -->
+<div
+  class="flex flex-col gap-6
+         items-center text-center
+         lg:items-start lg:text-left"
+>
+
+      <h1 class="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-white leading-tight mt-5">
+        Transform Your Mindset.<br />
+        Unlock Limitless Potential.
+      </h1>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-center">
+        <a
+          href="#booking"
+          class="px-8 py-3 bg-brand-500 text-white font-semibold
+                 rounded-[15px] shadow-xl
+                 hover:bg-brand-700 transition"
+        >
+          Book Your Strategy Session
+        </a>
+        <a
+          href="#about"
+          class="px-8 py-3 border border-white/60 text-white font-semibold
+                 rounded-[15px]
+                 hover:bg-white hover:text-black transition"
+        >
+          Learn More
+        </a>
+      </div>
+
+      <p class="text-lg sm:text-xl text-white/90 max-w-md mx-auto lg:mx-0">
+        Personalized mindset coaching for executives and high-performers who want clarity, confidence, and peak performance in every aspect of life.
+      </p>
+
+      <!-- Executive Accent -->
+      <div class="flex items-center gap-3 justify-center">
+        <span class="w-14 h-[1px] bg-brand-50/90"></span>
+        <span class="text-xs tracking-widest text-brand-50/90 uppercase">
+          Executive Mindset Coaching
+        </span>
+        <span class="w-14 h-[1px] bg-brand-50/90"></span>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Authority + Visual Proof -->
+    <div class="flex flex-col gap-8">
+
+      <!-- Authority Panel -->
+      <div
+        class="grid grid-cols-3 text-center
+               bg-white/5 backdrop-blur-md
+               border border-white/10
+               rounded-2xl px-6 py-5"
+      >
+        <div>
+          <p class="text-3xl font-bold text-white">10+</p>
+          <p class="text-sm text-white/70">Years Coaching</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-white">500+</p>
+          <p class="text-sm text-white/70">Clients Transformed</p>
+        </div>
+        <div>
+          <p class="text-sm text-white/70">Featured In</p>
+          <p class="text-base font-semibold text-white">Forbes, TEDx</p>
+        </div>
+      </div>
+
+      <!-- Image Stack (fixed height = no overflow) -->
+      <div class="grid grid-rows-3 gap-4 h-[420px]">
+        <div class="row-span-2 rounded-3xl overflow-hidden shadow-2xl relative">
+          <img
+            src="https://avatars.mds.yandex.net/i?id=48a2467312d979bf28649fb16026d61cd45f546c-10869598-images-thumbs&n=13"
+            class="w-full h-full object-cover"
+          />
+            <div class="absolute inset-0 bg-gradient-to-br from-black/30 via-brand-500/20 to-black/40"></div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=c9a3643b4ba49f2e1daaa6280f197d961f4e77f9-4567432-images-thumbs&n=13"
+              class="w-full h-full object-cover brightness-50"
+            />
+            <div class="relative inset-0 bg-gradient-to-br from-black/30 via-brand-500/20 to-black/30"></div>
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=da7a2215032c9e6364030499e53e8d4b2fe0cf73-2856395-images-thumbs&n=13"
+              class="w-full h-full object-cover brightness-brand-50"
+            />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <script src="src/script.js"></script>
 </body>
