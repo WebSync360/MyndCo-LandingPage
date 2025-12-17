@@ -1,11 +1,13 @@
   const header = document.getElementById("site-header");
   const menuBtn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
+  const desktopNav = document.getElementById("desktop-nav");
+  const ctaBtn = header.querySelector(".cta-btn");
 
   let lastScrollY = window.scrollY;
 
   /* ===============================
-     HEADER HIDE / SHOW ON SCROLL
+     HEADER HIDE / SHOW
   =============================== */
   window.addEventListener("scroll", () => {
     const currentScroll = window.scrollY;
@@ -20,26 +22,38 @@
   });
 
   /* ===============================
-     MOBILE MENU TOGGLE
+     MOBILE MENU
   =============================== */
   menuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
   });
 
   /* ===============================
-     AUTO COLOR SWITCH (SMART)
+     COLOR MODE SWITCH (TAILWIND)
   =============================== */
+  const setDarkMode = () => {
+    desktopNav.classList.remove("text-brand-500");
+    desktopNav.classList.add("text-white/80");
+
+    ctaBtn.classList.remove("bg-brand-500", "text-white");
+    ctaBtn.classList.add("bg-white", "text-brand-500");
+  };
+
+  const setLightMode = () => {
+    desktopNav.classList.remove("text-white/80");
+    desktopNav.classList.add("text-brand-500");
+
+    ctaBtn.classList.remove("bg-white", "text-brand-500");
+    ctaBtn.classList.add("bg-brand-500", "text-white");
+  };
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          if (entry.target.dataset.bg === "light") {
-            header.classList.remove("header-dark");
-            header.classList.add("header-light");
-          } else {
-            header.classList.remove("header-light");
-            header.classList.add("header-dark");
-          }
+          entry.target.dataset.bg === "light"
+            ? setLightMode()
+            : setDarkMode();
         }
       });
     },
