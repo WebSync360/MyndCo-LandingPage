@@ -11,9 +11,9 @@ module.exports = {
         brand: {
           50:  '#ffcdd2',  // very light red, for backgrounds, subtle cards
           100: '#a57272ce',  // light red, hover states, highlights
-          500: '#660000ce',  // deep red, primary buttons, hero background
-          600: '#816969ff',
-          700: '#330000',  // darker red, headings, emphasis, footers
+          500: '#160606ff',  // deep red, primary buttons, hero background
+          600: '#a59e9eff',
+          700: '#130000ff',  // darker red, headings, emphasis, footers
         },
         // Accent color to balance the warmth of red
         accent: '#00264D', // deep blue, for small UI elements, icons, subtle highlights
