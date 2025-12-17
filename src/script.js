@@ -1,62 +1,65 @@
-// ======== DOM ELEMENTS =========
-const header = document.getElementById("site-header");
-const nav = document.getElementById("desktop-nav");
-const cta = document.querySelector(".cta-btn");
+  // Elements
+  const header = document.getElementById("site-header");
+  const nav = document.getElementById("desktop-nav");
+  const cta = document.querySelector(".cta-btn");
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
+  // === Color switching based on section background ===
+  const setDark = () => {
+    nav.classList.remove("text-brand-500");
+    nav.classList.add("text-white");
 
-// ======== COLOR SWITCH FUNCTIONS =========
-const setDark = () => {
-  // Desktop nav
-  nav.classList.remove("text-brand-500");
-  nav.classList.add("text-white");
+    cta.classList.remove("bg-white", "text-brand-500");
+    cta.classList.add("bg-brand-500", "text-white");
+  };
 
-  // CTA button
-  cta.classList.remove("bg-white", "text-brand-500");
-  cta.classList.add("bg-brand-500", "text-white");
+  const setLight = () => {
+    nav.classList.remove("text-white");
+    nav.classList.add("text-brand-500");
 
-  // Mobile menu
-  mobileMenu.classList.remove("bg-white", "text-brand-700");
-  mobileMenu.classList.add("bg-brand-500", "text-white");
-};
+    cta.classList.remove("bg-brand-500", "text-white");
+    cta.classList.add("bg-white", "text-brand-700");
+  };
 
-const setLight = () => {
-  // Desktop nav
-  nav.classList.remove("text-white");
-  nav.classList.add("text-brand-500");
+  // Default state
+  setDark();
 
-  // CTA button
-  cta.classList.remove("bg-brand-500", "text-white");
-  cta.classList.add("bg-white", "text-brand-700");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
 
-  // Mobile menu
-  mobileMenu.classList.remove("bg-brand-500", "text-white");
-  mobileMenu.classList.add("bg-white", "text-brand-700");
-};
+        const bg = entry.target.dataset.bg;
+        if (bg === "light") setLight();
+        if (bg === "dark") setDark();
+      });
+    },
+    { threshold: 0.6 }
+  );
 
-// ======== DEFAULT =========
-setDark(); // Assume hero section is dark by default
+  document.querySelectorAll("section[data-bg]").forEach((section) => {
+    observer.observe(section);
+  });
 
-// ======== OBSERVER =========
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
+  // === Mobile menu toggle ===
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
 
-      const bg = entry.target.dataset.bg;
-      if (bg === "light") setLight();
-      if (bg === "dark") setDark();
-    });
-  },
-  { threshold: 0.6 }
-);
+  // === Header hide/show on scroll ===
+  let lastScrollY = window.scrollY;
 
-document.querySelectorAll("section[data-bg]").forEach((section) => {
-  observer.observe(section);
-});
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
 
-// ======== MOBILE MENU TOGGLE =========
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden");
-});
+    if (currentScroll > lastScrollY && currentScroll > 50) {
+      // Scrolling down → hide header
+      header.classList.add("translate-y-[-100%]", "transition-transform", "duration-300");
+    } else {
+      // Scrolling up → show header
+      header.classList.remove("translate-y-[-100%]");
+    }
+
+    lastScrollY = currentScroll;
+  });
