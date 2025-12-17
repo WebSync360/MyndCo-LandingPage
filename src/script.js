@@ -1,65 +1,39 @@
-  const header = document.getElementById("site-header");
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const desktopNav = document.getElementById("desktop-nav");
-  const ctaBtn = header.querySelector(".cta-btn");
+const header = document.getElementById("site-header");
+const nav = document.getElementById("desktop-nav");
+const cta = document.querySelector(".cta-btn");
 
-  let lastScrollY = window.scrollY;
+const setDark = () => {
+  nav.classList.remove("text-brand-500");
+  nav.classList.add("text-white");
 
-  /* ===============================
-     HEADER HIDE / SHOW
-  =============================== */
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.scrollY;
+  cta.classList.remove("bg-white", "text-brand-500");
+  cta.classList.add("bg-brand-500", "text-white");
+};
 
-    if (currentScroll > lastScrollY && currentScroll > 80) {
-      header.classList.add("-translate-y-full");
-    } else {
-      header.classList.remove("-translate-y-full");
-    }
+const setLight = () => {
+  nav.classList.remove("text-white");
+  nav.classList.add("text-brand-500");
 
-    lastScrollY = currentScroll;
-  });
+  cta.classList.remove("bg-brand-500", "text-white");
+  cta.classList.add("bg-white", "text-brand-500");
+};
 
-  /* ===============================
-     MOBILE MENU
-  =============================== */
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
+// Default (hero is dark)
+setDark();
 
-  /* ===============================
-     COLOR MODE SWITCH (TAILWIND)
-  =============================== */
-  const setDarkMode = () => {
-    desktopNav.classList.remove("text-brand-500");
-    desktopNav.classList.add("text-white/80");
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
 
-    ctaBtn.classList.remove("bg-brand-500", "text-white");
-    ctaBtn.classList.add("bg-white", "text-brand-500");
-  };
+      const bg = entry.target.dataset.bg;
+      if (bg === "light") setLight();
+      if (bg === "dark") setDark();
+    });
+  },
+  { threshold: 0.6 }
+);
 
-  const setLightMode = () => {
-    desktopNav.classList.remove("text-white/80");
-    desktopNav.classList.add("text-brand-500");
-
-    ctaBtn.classList.remove("bg-white", "text-brand-500");
-    ctaBtn.classList.add("bg-brand-500", "text-white");
-  };
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.dataset.bg === "light"
-            ? setLightMode()
-            : setDarkMode();
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
-
-  document.querySelectorAll("[data-bg]").forEach(section => {
-    observer.observe(section);
-  });
+document.querySelectorAll("section[data-bg]").forEach((section) => {
+  observer.observe(section);
+});
